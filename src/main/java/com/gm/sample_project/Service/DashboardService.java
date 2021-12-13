@@ -1,4 +1,4 @@
-package com.gm.sample_project.Service;
+package com.gm.sample_project.service;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

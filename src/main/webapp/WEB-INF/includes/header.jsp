@@ -26,9 +26,10 @@ pageEncoding="UTF-8"%>
                 <a href="#" id="logout">로그아웃</a>
             </div>
             <div class="main_menu">
+                <a href="/"><i class="fas fa-columns"></i> 대시보드</a>
+                <a href="book"><i class="fas fa-book"></i>도서 관리</a>
                 <a href="#"><i class="fas fa-users"></i>회원 관리</a>
                 <a href="#"><i class="fas fa-clipboard-list"></i>주문 관리</a>
-                <a href="#"><i class="fas fa-book"></i>도서 관리</a>
                 <a href="#"><i class="far fa-pen-square"></i>리뷰 관리</a>
             </div>
         </div>

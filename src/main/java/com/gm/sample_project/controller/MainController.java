@@ -1,6 +1,6 @@
 package com.gm.sample_project.controller;
 
-import com.gm.sample_project.Service.DashboardService;
+import com.gm.sample_project.service.DashboardService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
