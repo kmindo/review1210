@@ -14,12 +14,12 @@ pageEncoding="UTF-8"%>
 </head>
 <body>
     <main>
-        <h1><i class="fas fa-book"></i>도서 관리</h1>
+        <h1><i class="fas fa-book"></i>   도서 관리</h1>
         <button id="add_book"><i class="fas fa-plus-circle"></i>도서 추가</button>
         <div class="content_area">
             <div class="menu_area">
                 <div class="search_box">
-                    <input type="text" id="keyword" placeholder="검색어를 입력하세요">
+                    <input type="text" id="keyword" placeholder="검색어를 입력하세요" value="${data.keyword}">
                     <button id="search_btn"><i class="fas fa-search"></i></button>
                 </div>
                 <button id="reset_btn">초기화</button>
@@ -39,6 +39,7 @@ pageEncoding="UTF-8"%>
                             <th>상태</th>
                             <th>등록일</th>
                             <th>수정일</th>
+                            <th>수정/삭제</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,7 +74,7 @@ pageEncoding="UTF-8"%>
                 <button id="prev"><i class="fas fa-chevron-left"></i></button>
                 <div class="pagers">
                     <c:forEach begin="1" end="${data.pageCnt}" var="i">
-                        <a href="/book?offset=${(i-1)*10}">${i}</a>
+                        <a href="/book?offset=${(i-1)*10}&keyword=${data.keyword}">${i}</a>
                     </c:forEach>
                 </div>
                 <button id="next"><i class="fas fa-chevron-right"></i></button>
@@ -113,6 +114,7 @@ pageEncoding="UTF-8"%>
             </div>
             <div class="btn_area">
                 <button id="add_bk">등록하기</button>
+                <button id="modify_bk">수정하기</button>
                 <button id="cancel_bk">취소하기</button>
             </div>
         </div>

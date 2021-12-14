@@ -3,11 +3,12 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gm.sample_project.mapper.BookMapper">
     <select id="getBookInfo" resultType="com.gm.sample_project.data.BookVO">
-        select * from book_info order by bi_seq desc 
+        select * from book_info where bi_name like #{keyword}
+        order by bi_seq desc 
         limit 10 offset #{offset}
     </select>
     <select id="getBookCount" resultType="java.lang.Integer">
-        select count(*) from book_info
+        select count(*) from book_info where bi_name like #{keyword}
     </select>
     <insert id="addBook">
         insert into book_info(bi_name, bi_sc_seq, bi_publisher, bi_author, bi_stock, bi_price, bi_pub_date, bi_status)
@@ -16,4 +17,22 @@
     <delete id="deleteBook">
         delete from book_info where bi_seq=#{seq}
     </delete>
+    <select id="getBookInfoBySeq" resultType="com.gm.sample_project.data.BookVO">
+        select * from book_info where bi_seq = #{seq}
+    </select>
+    <update id="updateBook">
+        update book_info 
+        set bi_name=#{bi_name}, bi_sc_seq=#{bi_sc_seq}, bi_publisher=#{bi_publisher}, bi_author=#{bi_author},
+            bi_stock=#{bi_stock}, bi_price=#{bi_price}, bi_pub_date=#{bi_pub_date}, bi_status=#{bi_status},
+            bi_mod_dt=NOW()
+        where bi_seq=#{bi_seq}
+    </update>
+    <select id="selectLatestDataSeq" resultType="java.lang.Integer">
+        select bi_seq from book_info
+        order by bi_seq desc limit 1
+    </select>
+    <insert id="insertBookHistory">
+    INSERT INTO book_work_db.book_history (bkh_type, bkh_content, bkh_bi_seq)
+    VALUES (#{bkh_type}, #{bkh_content}, #{bkh_bi_seq})
+    </insert>
 </mapper>

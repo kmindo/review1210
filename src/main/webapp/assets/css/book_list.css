@@ -2,7 +2,7 @@ main{background-color: #f7f7f7; position: relative;}
 main > h1 {font-size: 36px; padding-bottom: 30px; margin-bottom: 30px; border-bottom: 1px solid #ddd;}
 
 #add_book{
-    position:absolute; right:35px; top:30px;
+    position:absolute; right:35px; top:35px;
     border: 0; background-color: #999; color: #fff;
     width:170px; height: 40px; border-radius: 5px; font-size: 14px; font-weight: 300;
     cursor:pointer;
@@ -20,10 +20,10 @@ main > h1 {font-size: 36px; padding-bottom: 30px; margin-bottom: 30px; border-bo
 }
 
 
-#reset_btn{border: 0; background-color: rgb(103,103,124); color: #fff; width: 80px; height: 35px;
+#reset_btn{border: 0; background-color: #999; color: #fff; width: 80px; height: 35px;
 border-radius: 99px; cursor: pointer;
 }
-#reset_btn:hover {background-color:rgb(18,18,68);} 
+#reset_btn:hover {background-color:#434343;} 
 
 .table_area table {width: 100%; margin-top: 30px; border-collapse: separate; border-spacing: 0 15px;}     
 .table_area td {text-align: center;}
@@ -35,8 +35,8 @@ color: #333;}
 .table_area tbody td:first-child{border-radius: 5px 0 0 5px;}
 .table_area tbody td:last-child {border-radius: 0 5px 5px 0;}
 
-.talbe_area tbody td button {margin: 0 8px; background-color: transparent; border: 0; padding: 0;
-font-size: 20px; cursor: pointer;}
+/* .table_area tbody td button {margin: 0 8px; background-color: transparent; border: 0; padding: 0;
+font-size: 20px; cursor: pointer;} */
 .modify_btn {color:rgb(73, 73, 93);}
 .delete_btn {color: rgb(224, 81, 81);}
 
@@ -61,7 +61,7 @@ font-size: 20px; color: #434343; cursor: pointer;}
 .popup_wrap.open {display: block;}
 .popup {
     position: absolute; left: 50%; top: 50%; background-color: #fff;
-    margin-left: -250px; margin-top: -400px;
+    margin-left: -250px; margin-top: -417px;
     z-index: 999999; padding:45px 0; width: 500px;
     background-repeat: 5px; box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
@@ -80,6 +80,19 @@ border-radius: 999px; display: inline-block;}
     font-size: 16px; font-weight: 400; padding: 10px 20px; box-sizing: border-box;
     border-radius: 15px; margin-bottom: 15px; outline: none;}
 
+#book_category{  padding:10px 20px;
+    background-image:url("/assets/images/arrow.png");
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: 317px 17px;
+    appearance: none;}
+#book_status{  padding:10px 20px;
+    background-image:url("/assets/images/arrow.png");
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: 317px 17px;
+    appearance: none;}
+
 .btn_area {
     text-align: center;
 }
@@ -89,5 +102,7 @@ border-radius: 999px; display: inline-block;}
 }
 .btn_area #add_bk {background-color: #999;}
 .btn_area #add_bk:hover {background-color: #333;}
+.btn_area #modify_bk {background-color: #999;}
+.btn_area #modify_bk:hover {background-color: #333;}
 .btn_area #cancel_bk {background-color: rgb(255, 194, 194);}
 .btn_area #cancel_bk:hover {background-color: rgb(255, 83, 83);}
