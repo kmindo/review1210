@@ -1,6 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -16,7 +17,6 @@ pageEncoding="UTF-8"%>
     </script>   
 </head>
 <body>
-    <%@include file="/WEB-INF/includes/header.jsp"%>
     <main>
         <h1>교보문고 관리 대시보드</h1>
         <div class="content_area">
@@ -30,10 +30,10 @@ pageEncoding="UTF-8"%>
             <div class="book_info">
                 <h2><i class="fas fa-book"></i>도서 정보</h2>
                 <p>제품 총 재고 : <span>${cnt.book[0]}권</span></p>
-                <p>판매 진행 제품 : <span>${cnt.book[1]}권</span></p>
-                <p>판매 예정 제품 : <span>${cnt.book[2]}권</span></p>
-                <p>판매 불가 제품 : <span>${cnt.book[3]}권</span></p>
-                <p><i class="far fa-clock"></i>업데이트 날짜 : <span>2021-12-10 12:00:00</span></p>
+                <p>판매 제품 : <span>${cnt.book[1]}권</span></p>
+                <p>품절 제품 : <span>${cnt.book[2]}권</span></p>
+                <p>절판 제품 : <span>${cnt.book[3]}권</span></p>
+                <p><i class="far fa-clock"></i>업데이트 날짜 : <span><fmt:formatDate value="${update.book}" pattern="yyyy-MM-dd HH:mm:ss"/></span></p>
             </div>
             <div class="order_info">
                 <h2><i class="fas fa-clipboard-list"></i>주문 정보</h2>
@@ -50,6 +50,22 @@ pageEncoding="UTF-8"%>
                 <p>삭제된 리뷰 수 : <span>${cnt.review[2]}개</span></p>
                 <p><i class="far fa-clock"></i>업데이트 날짜 : <span>2021-12-10 12:00:00</span></p>
             </div>
+            <div class="employee_info">
+                <h2><i class="fas fa-user-cog"></i>직원 정보</h2>
+                <p>총 직원 수 : <span>${cnt.employee[0]}명</span></p>
+                <p>재직 직원 수 : <span>${cnt.employee[1]}명</span></p>
+                <p>휴직 직원 수 : <span>${cnt.employee[2]}명</span></p>
+                <p>휴가 직원 수 : <span>${cnt.employee[3]}명</span></p>
+                <p><i class="far fa-clock"></i>업데이트 날짜 : <span><fmt:formatDate value="${update.employee}" pattern="yyyy-MM-dd HH:mm:ss"/></span></p>
+            </div>
+            <!-- <div class="publisher_info">
+                <h2><i class="fas fa-list-ul"></i>출판사 정보</h2>
+                <p>총 출판사 수 : <span>${cnt.publisher[0]}명</span></p>
+                <p>?? 출판사 수 : <span>${cnt.publisher[1]}명</span></p>
+                <p>?? 출판사 수 : <span>${cnt.publisher[2]}명</span></p>
+                <p>?? 출판사 수 : <span>${cnt.publisher[3]}명</span></p>
+                <p><i class="far fa-clock"></i>업데이트 날짜 : <span><fmt:formatDate value="${update.employee}" pattern="yyyy-MM-dd HH:mm:ss"/></span></p>
+            </div> -->
         </div>
     </main>
 </body>

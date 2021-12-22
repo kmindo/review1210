@@ -33,11 +33,11 @@
     <select id="getSellingBookCnt" resultType="java.lang.Integer">
         select count(*) from book_info where bi_status = 1
     </select>
-    <select id="getReadyBookCnt" resultType="java.lang.Integer">
+    <select id="getNoBookCnt" resultType="java.lang.Integer">
         select count(*) from book_info where bi_status = 2
     </select>
     <select id="getUnavailableBookCnt" resultType="java.lang.Integer">
-        select count(*) from book_info where bi_status = 0
+        select count(*) from book_info where bi_status = 3
     </select>
 
 
@@ -50,4 +50,24 @@
     <select id="getDeleteReviewCnt" resultType="java.lang.Integer">
         select count(*) from book_review where br_status = 0
     </select>
+
+    <select id="getTotalEmployeeCnt" resultType="java.lang.Integer">
+        select count(*) from employee_info
+    </select>
+    <select id="getNowEmployeeCnt" resultType="java.lang.Integer">
+        select count(*) from employee_info where ei_status=1
+    </select>
+    <select id="getVacationEmployeeCnt" resultType="java.lang.Integer">
+        select count(*) from employee_info where ei_status=2
+    </select>
+    <select id="getRestEmployeeCnt" resultType="java.lang.Integer">
+        select count(*) from employee_info where ei_status=3
+    </select>
+
+    <select id="getBookUpdateDate" resultType="java.util.Date">
+        select bkh_reg_dt from book_history order by bkh_reg_dt desc limit 1
+    </select>  
+    <select id="getEmployeeUpdateDate" resultType="java.util.Date">
+        select eih_reg_dt from employee_info_history order by eih_reg_dt desc limit 1
+    </select>  
 </mapper>

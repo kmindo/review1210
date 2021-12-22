@@ -1,6 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,22 +46,60 @@ pageEncoding="UTF-8"%>
                     <tbody>
                         <c:if test="${data.total == 0}">
                             <tr>
-                                <td id="nodata" colspan="6">데이터가 없습니다.</td>
+                                <td id="nodata" colspan="12">데이터가 없습니다.</td>
                             </tr>
                         </c:if>
                         <c:forEach items="${data.list}" var="b">
                             <tr>
                                 <td>${b.bi_seq}</td>
-                                <td>${b.bi_sc_seq}</td>
+                                <td class="book_category">
+                                    <c:if test="${b.bi_sc_seq==1}">
+                                        <span>경제/경영</span>
+                                    </c:if>
+                                    <c:if test="${b.bi_sc_seq==2}">
+                                        <span>과학</span>
+                                    </c:if>
+                                    <c:if test="${b.bi_sc_seq==3}">
+                                        <span>만화</span>
+                                    </c:if>
+                                    <c:if test="${b.bi_sc_seq==4}">
+                                        <span>소설</span>
+                                    </c:if>
+                                    <c:if test="${b.bi_sc_seq==5}">
+                                        <span>시/에세이</span>
+                                    </c:if>
+                                    <c:if test="${b.bi_sc_seq==6}">
+                                        <span>역사/문화</span>
+                                    </c:if>
+                                    <c:if test="${b.bi_sc_seq==7}">
+                                        <span>예술/대중문화</span>
+                                    </c:if>
+                                    <c:if test="${b.bi_sc_seq==8}">
+                                        <span>요리</span>
+                                    </c:if>
+                                    <c:if test="${b.bi_sc_seq==9}">
+                                        <span>인문</span>
+                                    </c:if>
+                                </td>
                                 <td>${b.bi_name}</td>
                                 <td>${b.bi_publisher}</td>
                                 <td>${b.bi_author}</td>
                                 <td>${b.bi_stock}</td>
                                 <td>${b.bi_price}</td>
                                 <td>${b.bi_pub_date}</td>
-                                <td>${b.bi_status}</td>
-                                <td>${b.bi_reg_dt}</td>
-                                <td>${b.bi_mod_dt}</td>
+                                <td class="book_status">
+                                    <c:if test="${b.bi_status ==1}">
+                                        <span style="background-color: rgb(17, 226, 27);">판매중</span>
+                                    </c:if>
+                                    <c:if test="${b.bi_status ==2}">
+                                        <span style="background-color: rgb(225,110,26);">품절</span>
+                                    </c:if>
+                                    <c:if test="${b.bi_status ==3}">
+                                        <span style="background-color: rgb(251,186,64);">절판</span>
+                                    </c:if>
+                                </td>
+                                <td><fmt:formatDate value="${b.bi_reg_dt}" pattern="yyyy년 MM월 dd일(EE) HH:mm:ss"/></td>
+                                <td><fmt:formatDate value="${b.bi_mod_dt}" pattern="yyyy년 MM월 dd일(EE) HH:mm:ss"/></td>
                                 <td>
                                     <button class="modify_btn" data-seq="${b.bi_seq}"><i class="fas fa-pencil-alt"></i></button>
                                     <button class="delete_btn" data-seq="${b.bi_seq}"><i class="fas fa-minus-circle"></i></button>
@@ -100,7 +139,9 @@ pageEncoding="UTF-8"%>
                     <option value="7">예술/대중문화</option>
                     <option value="8">요리</option>
                     <option value="9">인문</option>
-                <input type="text" id="book_publisher" placeholder="출판사"><br>
+                <input type="text" id="book_publisher" placeholder="출판사">
+                <button id="search_pub">검색</button>
+                <br>
                 <input type="text" id="book_author" placeholder="작가"><br>
                 <input type="number" id="book_stock" placeholder="재고"><br>
                 <input type="number" id="book_price" placeholder="가격"><br>
@@ -109,7 +150,6 @@ pageEncoding="UTF-8"%>
                     <option value="1">판매중</option>
                     <option value="2">품절</option>
                     <option value="3">절판</option>
-                    <option value="4">판매예정</option>
                 </select>
             </div>
             <div class="btn_area">
@@ -117,6 +157,20 @@ pageEncoding="UTF-8"%>
                 <button id="modify_bk">수정하기</button>
                 <button id="cancel_bk">취소하기</button>
             </div>
+        </div>
+    </div>
+
+    <div class="department_search">
+        <div class="dep_search_box">
+            <input type="text" id="dep_keyword" placeholder="예) 민음사, 민음, 민">
+            <button id="dep_search_btn"><i class = "fas fa-search"></i></button>
+        </div>
+        <div class="search_result">
+            <ul>
+            </ul>
+        </div>
+        <div class="dep_search_buttons">
+            <button id="dep_search_close">닫기</button>
         </div>
     </div>
 </body>

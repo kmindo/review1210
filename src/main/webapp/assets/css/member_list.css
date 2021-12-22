@@ -1,0 +1,37 @@
+#add_member{
+        position:absolute; right:35px; top:35px;
+        border: 0; background-color: #999; color: #fff;
+        width:170px; height: 40px; border-radius: 5px; font-size: 14px; font-weight: 300;
+        cursor:pointer;
+}
+#add_member i {margin-right: 5px;}
+#add_member:hover {background-color: #333;}
+
+
+.popup .content_area input, 
+.popup .content_area button {
+        width : calc(50% - 10px); padding:0; margin: 0; border: 1px solid #ccc;
+        font-size: 14px; font-weight: 400; padding: 5px 15px; box-sizing: border-box;
+        border-radius: 15px; margin-bottom: 10px; outline: none; margin:5px;
+}
+.popup .content_area #member_id {width: calc(100% - 10px);}
+.popup .content_area #member_name {width: calc(100% - 10px);}
+.popup .content_area #member_pwd {width: calc(100% - 10px);}
+.popup .content_area #member_pwd_confirm {width: calc(100% - 10px);}
+.popup .content_area #member_phone {width: calc(100% - 10px);}
+.popup .content_area #member_birth {width: calc(100% - 10px);}
+.popup .content_area #member_email {width: calc(100% - 10px);}
+.popup .content_area #member_status {width: calc(30% - 10px); margin: 5px;}
+
+#member_status {width: 150px; border-radius: 15px; border:1px solid #ccc; padding: 5px 15px;}
+
+/* .popup_wrap {display: block;} */
+
+.btn_area #add_mem {background-color: #999;}
+.btn_area #add_mem:hover {background-color: #333;}
+.btn_area #modify_mem {background-color: #999;}
+.btn_area #modify_mem:hover {background-color: #333;}
+.btn_area #cancel_mem {background-color: rgb(255, 194, 194);}
+.btn_area #cancel_mem:hover {background-color: rgb(255, 83, 83);}
+
+#search_type {border: 0; padding-right: 5px; margin-right: 5px; outline: none;}

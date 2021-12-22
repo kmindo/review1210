@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gm.sample_project.mapper.PublisherMapper">
+<select id="getPublisherInfo" resultType="com.gm.sample_project.data.PublisherVO">
+    select * from publisher_info order by pi_seq desc
+    limit 10 offset #{offset}
+</select>
+<select id="getPublisherInfoBySeq" resultType="com.gm.sample_project.data.PublisherVO">
+        select * from publisher_info where pi_seq = #{seq}
+    </select>
+<select id="getPublisherByKeyword" resultType="com.gm.sample_project.data.PublisherVO">
+    select pi_seq, pi_name, pi_status from publisher_info where pi_name like #{keyword}
+</select>
+<insert id="addPublisherInfo">
+    insert into publisher_info (pi_name, pi_status) values(#{pi_name}, #{pi_status})
+</insert>
+<delete id="deletePublisherInfo">
+        delete from publisher_info where pi_seq = #{seq}
+</delete>
+<select id="isExistPublisher" resultType="java.lang.Integer">
+        select count(*) from publisher_info where pi_seq = #{seq}
+</select>
+<update id="updatePublisher">
+        update publisher_info 
+        set pi_name=#{pi_name}, pi_status=#{pi_status},
+        pi_mod_dt=NOW()
+        where pi_seq=#{pi_seq}
+</update>
+<!-- <select id="getPublisherCount" resultType="java.lang.Integer">
+    select count(*) from publisher_info
+</select>
+<select id="getPublisherList" resultType="com.gm.sample_project.data.PublisherVO">
+        select pi_seq, pi_status
+        from publisher_info
+        <if test="type == 'name'">
+        where pi_name like #{keyword}
+        </if>
+        order by ei_seq desc
+        limit 10 offset #{offset}
+    </select> -->
+</mapper>

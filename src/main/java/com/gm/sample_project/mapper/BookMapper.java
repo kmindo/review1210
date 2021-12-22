@@ -17,4 +17,6 @@ public interface BookMapper {
     public void updateBook(BookVO data);
     public Integer selectLatestDataSeq();
     public void insertBookHistory(BookHistoryVO data);
+
+    public List<BookVO> getBookByKeyword(String keyword);
 }

@@ -1,5 +1,49 @@
 $(function(){
     $(".main_menu a:nth-child(2)").addClass("active");
+    $("#search_pub").click(function(){
+        $(".department_search").css("display", "block");
+    })
+    $("#dep_search_close").click(function(){
+        $(".department_search").css("display","");
+    })
+    $("#dep_keyword").keyup(function(e){
+        if(e.keyCode == 13) $("#dep_search_btn").trigger("click");
+    })
+    $("#dep_search_btn").click(function(){
+        $.ajax({
+            url:"/publisher/keyword?keyword="+$("#dep_keyword").val(),
+            type:"get",
+            success:function(r){
+                console.log(r);
+                $(".search_result ul").html("");
+                for(let i=0; i<r.list.length; i++) {
+                    let str_status = "";
+                    if(r.list[i].pi_status == 1) str_status = "운영중"
+                    if(r.list[i].pi_status == 2) str_status = "보류"
+                    if(r.list[i].pi_status == 3) str_status = "폐지예정"
+                    let tag = 
+                    '<li>'+
+                        '<a href="#" data-dep-seq="'+r.list[i].pi_seq+'">'+r.list[i].pi_name+'</a>'+
+                        '<span class="status'+r.list[i].pi_status+'">'+str_status+'</span>'+
+                    '</li>';
+                    $(".search_result ul").append(tag);
+                }
+                $(".search_result ul a").click(function(e){
+                    e.preventDefault(); 
+                    let seq = $(this).attr("data-dep-seq");
+                    let name = $(this).html();
+                    alert(seq+"/"+name);
+
+                    $("#book_publisher").attr("data-dep-seq", seq);
+                    $("#book_publisher").val(name);
+
+                    $(".search_result ul").html("");
+                    $("#dep_keyword").val("");
+                    $(".department_search").css("display", "");
+                })
+            }
+        })
+    })
     $("#add_book").click(function(){
         $(".popup_wrap").addClass("open");
         $("#add_bk").css("display", "inline-block");

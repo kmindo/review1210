@@ -16,8 +16,8 @@ public class BookService {
     @Autowired BookMapper mapper;
 
     public Map<String, Object> getBookList(Integer offset, String keyword){
-
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+
         if(offset == null) {
             offset= 0;
             resultMap.put("offset", offset);
@@ -123,6 +123,18 @@ public class BookService {
         history.setBkh_content(content);
         mapper.insertBookHistory(history);
 
+        return resultMap;
+    }
+    public Map<String, Object> getBookByKeyword(String keyword){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+        
+        if(keyword == null) keyword = "%%";
+        keyword = "%"+keyword+"%";
+
+        List<BookVO> list = mapper.getBookByKeyword(keyword);
+
+        resultMap.put("status", true);
+        resultMap.put("list", list);
         return resultMap;
     }
 }

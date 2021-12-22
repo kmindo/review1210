@@ -1,0 +1,62 @@
+/* .popup_wrap {display: block;} */
+.popup .content_area input {
+    width : 100%; padding:0; margin: 0; border: 1px solid #ccc;
+    font-size: 14px; font-weight: 400; padding: 5px 15px; box-sizing: border-box;
+    border-radius: 15px; margin-bottom: 10px; outline: none;
+}
+
+#dep_status {width: 100%; border-radius: 15px; border:1px solid #ccc; padding: 5px 10px;}
+#add_department{
+    position:absolute; right:35px; top:30px;
+    border: 0; background-color: #999; color: #fff;
+    width:170px; height: 40px; border-radius: 5px; font-size: 14px; font-weight: 300;
+    cursor:pointer;
+}
+#add_department i {margin-right: 5px;}
+#add_department:hover {background-color: #333;}
+.search_box {background-color: #fff; display: inline-block; vertical-align: middle;
+    padding:10px 20px; border-radius: 99px;
+}
+.search_box input {border:0; padding:0; margin: 0; outline: none;}
+.search_box button {color: #333; border: 0; padding: 0; margin: 0; background-color: transparent;
+    outline: none; cursor:pointer;
+}
+
+.table_area table {width: 100%; margin-top: 30px; border-collapse: separate; border-spacing: 0 15px;}     
+.table_area td {text-align: center;}
+
+.table_area th {color: #999; font-weight: 400; padding:20px 0; padding-bottom: 5px;}
+.table_area tbody tr {padding-bottom: 10px; box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);}
+.table_area tbody td {padding: 15px 0; background-color: #fff; margin-bottom: 10px; font-size: 14px;
+color: #333;} 
+.table_area tbody td:first-child{border-radius: 5px 0 0 5px;}
+.table_area tbody td:last-child {border-radius: 0 5px 5px 0;}
+.table_area tbody td button {margin: 0 8px; background-color: transparent; border: 0; padding: 0;
+    font-size: 20px; cursor: pointer;}
+.modify_btn {color:rgb(73, 73, 93);}
+.delete_btn {color: rgb(224, 81, 81);}
+
+.pager_area {text-align: center; padding-top: 30px;}
+.pagers {display: inline-block; vertical-align: middle;}
+.pager_area button {vertical-align: middle; display: inline-block; padding: 0; background-color: transparent;
+border: 0; margin: 10px; position: relative; top: 2px;
+font-size: 20px; color: #434343; cursor: pointer;}
+
+.pagers a {color: #555; text-decoration: none; margin: 10px;}
+.pagers a.current {color: #000; text-decoration: underline; font-weight: 700;}
+
+#nodata{
+    font-size:  24px; font-weight: 700; color: #999;
+    padding: 40px 0; border-color: rgba(225, 225, 225, 0.5);
+}
+#search_type {border: 0; padding-right: 5px; margin-right: 5px; outline: none;}
+
+
+
+
+.btn_area #add_dep {background-color: #999;}
+.btn_area #add_dep:hover {background-color: #333;}
+.btn_area #modify_dep {background-color: #999;}
+.btn_area #modify_dep:hover {background-color: #333;}
+.btn_area #cancel_dep {background-color: rgb(255, 194, 194);}
+.btn_area #cancel_dep:hover {background-color: rgb(255, 83, 83);}

@@ -1,0 +1,38 @@
+
+#add_employee{
+    position:absolute; right:35px; top:35px;
+    border: 0; background-color: #999; color: #fff;
+    width:170px; height: 40px; border-radius: 5px; font-size: 14px; font-weight: 300;
+    cursor:pointer;
+}
+#add_employee i {margin-right: 5px;}
+#add_employee:hover {background-color: #333;}
+
+
+.popup .content_area input {
+    width : 100%; padding:0; margin: 0; border: 1px solid #ccc;
+    font-size: 14px; font-weight: 400; padding: 5px 15px; box-sizing: border-box;
+    border-radius: 15px; margin-bottom: 10px; outline: none;
+}
+#employee_status {
+    width: 350px; height: 32px; border-radius: 15px; border:1px solid #ccc; padding: 5px 15px;
+        background-image:url("/assets/images/arrow.png");
+        background-repeat: no-repeat;
+        background-size: 10px;
+        background-position: 317px 12px;
+        appearance: none;
+    }
+.employee_status span {
+        display: inline-block; padding: 5px 10px; color: #fff; font-size: 12px;
+        border-radius: 3px;
+    }
+
+.btn_area #add_popup {background-color: #999;}
+.btn_area #add_popup:hover {background-color: #333;}
+.btn_area #modify_popup {background-color: #999;}
+.btn_area #modify_popup:hover {background-color: #333;}
+.btn_area #cancel_popup {background-color: rgb(255, 194, 194);}
+.btn_area #cancel_popup:hover {background-color: rgb(255, 83, 83);}
+
+#search_type {border: 0; padding-right: 5px; margin-right: 5px; outline: none;}
+

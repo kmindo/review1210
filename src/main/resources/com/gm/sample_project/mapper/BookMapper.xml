@@ -35,4 +35,7 @@
     INSERT INTO book_work_db.book_history (bkh_type, bkh_content, bkh_bi_seq)
     VALUES (#{bkh_type}, #{bkh_content}, #{bkh_bi_seq})
     </insert>
+        <select id="getBookByKeyword" resultType="com.gm.sample_project.data.BookVO">
+        select bi_seq, bi_name, bi_status from book_info where bi_name like #{keyword}
+    </select>
 </mapper>

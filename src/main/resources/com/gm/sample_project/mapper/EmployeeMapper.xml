@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gm.sample_project.mapper.EmployeeMapper">
+    <insert id="addEmployeeInfo">
+        INSERT INTO employee_info
+        (ei_number, ei_name, ei_birth, ei_pwd, ei_email, ei_phone_num, ei_status)
+        VALUES
+        (#{ei_number}, #{ei_name}, #{ei_birth}, #{ei_pwd}, #{ei_email}, #{ei_phone_num}, #{ei_status})
+    </insert>
+    <select id="getEmployeeList" resultType="com.gm.sample_project.data.EmployeeVO">
+        select ei_seq, ei_name, ei_number, ei_birth, ei_email, ei_phone_num, ei_status, ei_reg_dt, ei_mod_dt
+        from employee_info
+        <if test="type == 'employeeID'">
+        where ei_number like #{keyword}
+        </if>
+        <if test="type == 'name'">
+        where ei_name like #{keyword}
+        </if>
+        order by ei_seq desc
+        limit 10 offset #{offset}
+    </select>
+    <select id="getEmployeeCnt" resultType="java.lang.Integer">
+        select count(*) from employee_info
+        <if test="type == 'employeeID'">
+        where ei_number like #{keyword}
+        </if>
+        <if test="type == 'name'">
+        where ei_name like #{keyword}
+        </if>
+    </select>
+    <delete id="deleteEmployeeInfo">
+        delete from employee_info where ei_seq = #{seq}
+    </delete>
+    <select id="isExistEmployee" resultType="java.lang.Integer">
+        select count(*) from employee_info where ei_seq =#{seq}
+    </select>
+    <select id="getEmployeeInfoBySeq" resultType="com.gm.sample_project.data.EmployeeVO">
+        select ei_seq, ei_number, ei_name, ei_birth, ei_phone_num, ei_email, ei_status
+        from employee_info
+        where ei_seq = #{seq}    
+    </select>
+    <update id="updateEmployeeInfo">
+        update employee_info set
+        ei_name = #{ei_name}, ei_number = #{ei_number}, 
+        ei_birth = #{ei_birth}, ei_email = #{ei_email}, 
+        ei_phone_num = #{ei_phone_num}, ei_status = #{ei_status},
+        ei_mod_dt = NOW()
+        where ei_seq = #{ei_seq}
+    </update>
+    <insert id="insertEmployeeHistory">
+    INSERT INTO employee_info_history
+    (eih_ei_seq, eih_type, eih_content)
+    VALUES
+    (#{eih_ei_seq}, #{eih_type}, #{eih_content})
+    </insert>
+    <select id="getRecentAddedEmployeeSeq" resultType="java.lang.Integer">
+        select ei_seq from employee_info order by ei_seq desc limit 1
+    </select>
+</mapper>

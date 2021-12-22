@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gm.sample_project.mapper.MemberMapper">
+    <insert id="addMemberInfo">
+    INSERT INTO book_work_db.member_info
+    (mi_name, mi_id, mi_pwd, mi_email, mi_birth, mi_phone_num, mi_status)
+    VALUES
+    (#{mi_name}, #{mi_id}, #{mi_pwd}, #{mi_email}, #{mi_birth}, #{mi_phone_num}, #{mi_status})
+    </insert>
+</mapper>

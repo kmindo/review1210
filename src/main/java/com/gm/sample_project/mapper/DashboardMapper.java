@@ -1,5 +1,9 @@
 package com.gm.sample_project.mapper;
 
+
+
+import java.util.Date;
+
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -15,10 +19,18 @@ public interface DashboardMapper {
     
     public Integer getTotalBookCnt();
     public Integer getSellingBookCnt();
-    public Integer getReadyBookCnt();
+    public Integer getNoBookCnt();
     public Integer getUnavailableBookCnt();
 
     public Integer getTotalReviewCnt();
     public Integer getNowReviewCnt();
-    public Integer getDeleteReviewCnt();;
+    public Integer getDeleteReviewCnt();
+
+    public Integer getTotalEmployeeCnt();
+    public Integer getNowEmployeeCnt();
+    public Integer getVacationEmployeeCnt();
+    public Integer getRestEmployeeCnt();
+
+    public Date getBookUpdateDate();
+    public Date getEmployeeUpdateDate();
 }

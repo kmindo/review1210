@@ -27,10 +27,12 @@ pageEncoding="UTF-8"%>
             </div>
             <div class="main_menu">
                 <a href="/"><i class="fas fa-columns"></i> 대시보드</a>
-                <a href="book"><i class="fas fa-book"></i>도서 관리</a>
+                <a href="/book"><i class="fas fa-book"></i>도서 관리</a>
                 <a href="#"><i class="fas fa-users"></i>회원 관리</a>
+                <a href="/employee"><i class="fas fa-user-cog"></i>직원 관리</a>
+                <a href="/review"><i class="far fa-pen-square"></i>리뷰 관리</a>
                 <a href="#"><i class="fas fa-clipboard-list"></i>주문 관리</a>
-                <a href="#"><i class="far fa-pen-square"></i>리뷰 관리</a>
+                <a href="/publisher"><i class="fas fa-book"></i>출판사 관리</a>
             </div>
         </div>
     </header>
